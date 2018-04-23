@@ -1,0 +1,20 @@
+
+list.png
+size: 347,175
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+button
+  rotate: false
+  xy: 2, 2
+  size: 170, 171
+  orig: 170, 171
+  offset: 0, 0
+  index: 0
+button
+  rotate: false
+  xy: 174, 3
+  size: 171, 170
+  orig: 171, 170
+  offset: 0, 0
+  index: 1

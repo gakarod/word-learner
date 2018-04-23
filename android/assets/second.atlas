@@ -1,0 +1,41 @@
+
+second.png
+size: 2948,2671
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+second
+  rotate: false
+  xy: 2, 2
+  size: 1500, 2667
+  orig: 1500, 2667
+  offset: 0, 0
+  index: 1
+second
+  rotate: false
+  xy: 1504, 1389
+  size: 720, 1280
+  orig: 720, 1280
+  offset: 0, 0
+  index: 0
+second
+  rotate: false
+  xy: 1504, 107
+  size: 720, 1280
+  orig: 720, 1280
+  offset: 0, 0
+  index: 2
+second
+  rotate: false
+  xy: 2226, 1389
+  size: 720, 1280
+  orig: 720, 1280
+  offset: 0, 0
+  index: 3
+second
+  rotate: false
+  xy: 2226, 107
+  size: 720, 1280
+  orig: 720, 1280
+  offset: 0, 0
+  index: 4
