@@ -103,7 +103,7 @@ public class StartScreen extends ScreenAdapter {
 
                 super.tap(event, x, y, count, button);
 
-                game.setScreen(new fifth(game,0 , exercise ));
+                game.setScreen(new third(game,0 , exercise ));
 
                 dispose();
 

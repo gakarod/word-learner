@@ -87,7 +87,7 @@ public class ShapeGameScreen implements Screen {
         win = new Texture(Gdx.files.internal("winner.png"));
         retry = new Texture(Gdx.files.internal("try again.png"));
      //   texture1 = new Texture(Gdx.files.internal("winning card.png"));
-        background = new Texture(Gdx.files.internal("0.jpg")) ;
+        background = new Texture(Gdx.files.internal("1.png")) ;
 
         bUpTexture = new Texture(Gdx.files.internal("sound button.png"));
         bmTexture = new Texture(Gdx.files.internal("mike button.png"));
@@ -116,7 +116,7 @@ if(index == 1){
    //     texture1 = CommonObjects.imageLoader.getImage();
 
 texture1 = new Texture(Gdx.files.internal("shape_"+index+".png"));
-          words = new String[]{"circle" , "square" , "triangle ", "pentagon" , "star" , "rectangle"} ;
+          words = new String[]{"circle" , "square" , "triangle", "pentagon" , "star" , "rectangle"} ;
 
         CommonObjects.textToSpeech.speak(words[index]);
 
@@ -157,9 +157,9 @@ texture1 = new Texture(Gdx.files.internal("shape_"+index+".png"));
 if(texture1 != null) {
     Image image1 = new Image(texture1);
     image1.setZIndex(3);
-    image1.setWidth(game.screenWidth/2);
-    image1.setHeight(game.screenHeight / 2);
-    image1.setPosition(game.screenWidth / 5, game.screenHeight / 6);
+    image1.setWidth(3*Gdx.graphics.getWidth()/4);
+    image1.setHeight(Gdx.graphics.getHeight()/2);
+    image1.setPosition(game.screenWidth/8 , game.screenHeight/2);
     stage.addActor(image1);
 }
 
@@ -179,7 +179,7 @@ nice.setVisible(false);*/
 //                CommonObjects.imageLoader.loadImage(url[index], Gdx.graphics.getWidth() , Gdx.graphics.getHeight());
       //               texture1 = CommonObjects.imageLoader.getImage();
                      texture1 = new Texture(Gdx.files.internal("shape_"+index+".png"));
-                game.setScreen(new fifth(game, index, exercise));
+                game.setScreen(new third(game, index, exercise));
 
                  }
                  }
@@ -215,7 +215,7 @@ nice.setVisible(false);*/
                         game.showToast("We will try this word later");
                         game.incorrect = 0;
                         getImages();
-                        game.setScreen(new fifth(game, index, exercise));
+                        game.setScreen(new third(game, index, exercise));
                         sec.clear();
                         sec.remove();
                        // game.setScreen( new fifth(game , index , exercise));
