@@ -17,28 +17,28 @@ public class third implements Screen {
 	Texture texture1;
 	private float showTime = 0;
 	int index ;
+	String a ;
 	float xpos ,ypos;
 	private TextureAtlas atlas;
 	Array<TextureRegion> frames = new Array<TextureRegion>();
 	private ExerciseData exercise;
 come game;
-	public third(come game , int index , ExerciseData exerciseData)
+	public third(come game , int index , ExerciseData exerciseData , String a)
 	{
 		this.game = game;
 		this.index = index ;
 		this.exercise = exerciseData;
+		this.a = a ;
 		batch = new SpriteBatch();
+
 		img = new Texture("shape game.png");
-		texture1 = new Texture(Gdx.files.internal("shape_"+index+".png"));
-		atlas = new TextureAtlas(Gdx.files.internal("fall.atlas"));
-		frames.add(new TextureRegion(atlas.findRegion("c",0)));
-		frames.add(new TextureRegion(atlas.findRegion("c",1)));
-		frames.add(new TextureRegion(atlas.findRegion("c",2)));
-		frames.add(new TextureRegion(atlas.findRegion("c",3)));
-		frames.add(new TextureRegion(atlas.findRegion("c",4)));
-		frames.add(new TextureRegion(atlas.findRegion("c",5)));
-        xpos = game.screenWidth/8;
-        ypos = game.screenHeight-270;
+		atlas = new TextureAtlas(Gdx.files.internal(a + ".atlas"));
+		frames.add(new TextureRegion(atlas.findRegion(a ,0)));
+		frames.add(new TextureRegion(atlas.findRegion(a,1)));
+		frames.add(new TextureRegion(atlas.findRegion(a,2)));
+		frames.add(new TextureRegion(atlas.findRegion(a,3)));
+		frames.add(new TextureRegion(atlas.findRegion(a,4)));
+		frames.add(new TextureRegion(atlas.findRegion(a,5)));
 		animation = new Animation<TextureRegion>(1/4f,frames);
 	}
 
@@ -56,7 +56,6 @@ come game;
 	//	batch.draw(img, 0, 0);
 		batch.draw(img, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
-		ypos -= 15 ;
 		if(!animation.isAnimationFinished(showTime)  ) {
 			batch.draw(animation.getKeyFrame(showTime), 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		}
@@ -64,7 +63,7 @@ come game;
 		{
 			game.setScreen(new ShapeGameScreen(game , index , exercise ));
 		}
-		batch.draw(texture1, xpos, ypos, 3*Gdx.graphics.getWidth()/4, Gdx.graphics.getHeight()/2);
+
 		batch.end();
 	}
 

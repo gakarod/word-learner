@@ -16,7 +16,7 @@ import com.badlogic.gdx.utils.Array;
 public class second extends Actor {
 	private Animation<TextureRegion> animation;
 	TextureRegion img;
-	private float showTime = 0;
+	public float showTime = 0;
 	private TextureAtlas atlas;
 	Array<TextureRegion> frames = new Array<TextureRegion>();
 	come game;
@@ -38,8 +38,9 @@ public class second extends Actor {
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
-
-			getStage().getBatch().draw(animation.getKeyFrame(showTime,true),2*game.screenWidth/3-85, 120-85);
+if(showTime <= 3) {
+	getStage().getBatch().draw(animation.getKeyFrame(showTime, true), 2 * game.screenWidth / 3 - 85, 120 - 85);
+}
 
 	}
 

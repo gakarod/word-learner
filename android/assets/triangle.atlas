@@ -1,0 +1,48 @@
+
+triangle.png
+size: 2168,2566
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+triangle
+  rotate: false
+  xy: 2, 1284
+  size: 720, 1280
+  orig: 720, 1280
+  offset: 0, 0
+  index: 0
+triangle
+  rotate: false
+  xy: 2, 2
+  size: 720, 1280
+  orig: 720, 1280
+  offset: 0, 0
+  index: 1
+triangle
+  rotate: false
+  xy: 724, 1284
+  size: 720, 1280
+  orig: 720, 1280
+  offset: 0, 0
+  index: 2
+triangle
+  rotate: false
+  xy: 1446, 1284
+  size: 720, 1280
+  orig: 720, 1280
+  offset: 0, 0
+  index: 3
+triangle
+  rotate: false
+  xy: 724, 2
+  size: 720, 1280
+  orig: 720, 1280
+  offset: 0, 0
+  index: 4
+triangle
+  rotate: false
+  xy: 1446, 2
+  size: 720, 1280
+  orig: 720, 1280
+  offset: 0, 0
+  index: 5

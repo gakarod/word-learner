@@ -71,6 +71,7 @@ public class WordGameScreen implements Screen {
     second sec;
     Array<TextureRegion> list = new Array<TextureRegion>();
     String a;
+    Image image1;
     public WordGameScreen(final come game , int index , ExerciseData exerciseData) {
 
         this.game = game;
@@ -93,7 +94,7 @@ public class WordGameScreen implements Screen {
         list.add(new TextureRegion(atlas.findRegion("button",1)));
         win = new Texture(Gdx.files.internal("winner.png"));
         retry = new Texture(Gdx.files.internal("try again.png"));
-     //   texture1 = new Texture(Gdx.files.internal("winning card.png"));
+        texture2 = new Texture(Gdx.files.internal("shape game.png"));
         background = new Texture(Gdx.files.internal("0.jpg")) ;
 
         bUpTexture = new Texture(Gdx.files.internal("sound button.png"));
@@ -154,13 +155,13 @@ if(index == 1){
 
 
         Image okay = new Image(win);
-        okay.setZIndex(5);
+        okay.setZIndex(7);
         okay.setHeight(6*game.screenWidth/7);
         okay.setWidth(6*game.screenWidth/7);
         okay.setVisible(false);
         okay.setPosition(game.screenWidth/8,game.screenHeight/4);
-if(texture1 != null) {
-    Image image1 = new Image(texture1);
+if(texture1 != null && !over && !again) {
+    image1 = new Image(texture1);
     image1.setZIndex(3);
     image1.setWidth(7*game.screenWidth/8);
     image1.setHeight(7 * game.screenHeight / 8);
@@ -177,8 +178,16 @@ nice.setVisible(false);*/
 
 
         if (over)
-        { elapsedTime = TimeUtils.timeSinceMillis(timer);
+        {
+
+            elapsedTime = TimeUtils.timeSinceMillis(timer);
             okay.setVisible(true);
+            Image image2 = new Image(texture2);
+            image2.setZIndex(8);
+            image2.setWidth(game.screenWidth);
+            image2.setHeight( game.screenHeight);
+            image2.setPosition(0, 0);
+            stage.addActor(image2);
                  if ((System.currentTimeMillis() - timer) >= 2000 ){
                 over = false;
                 CommonObjects.imageLoader.loadImage(url[index], Gdx.graphics.getWidth() , Gdx.graphics.getHeight());
@@ -191,7 +200,7 @@ nice.setVisible(false);*/
 
 
         if (again)
-        {
+        {   image1.remove();
             game.batch.draw(retry,game.screenWidth/4,game.screenHeight/3,game.screenWidth/2,game.screenHeight/2);
             //nice.setVisible(true);
                 if ((System.currentTimeMillis() - timer) >= 2000 ){
@@ -207,6 +216,7 @@ nice.setVisible(false);*/
         if(listen){
             if(game.speechOutput!=null){
                 if(game.speechOutput.toLowerCase().equals(words[index].toLowerCase())){
+                    image1.remove();
                     game.showToast("Good Job");
                     getImages();
                     over = true ;
@@ -220,29 +230,21 @@ nice.setVisible(false);*/
                         game.incorrect = 0;
                         getImages();
                         game.setScreen(new fifth(game, index, exercise));
-                        sec.clear();
-                        sec.remove();
                        // game.setScreen( new fifth(game , index , exercise));
                     }
                     else {
                         game.showToast("Please try again ");
                         again = true ;
                         timer = System.currentTimeMillis() ;
-                        sec.clear();
-                        sec.remove();
                     }
                 }
                 game.speechOutput = null;
                 listen = false;
-                sec.remove();
             }
         }
 
 
         if(listen){
-            sec.setZIndex(5);
-            sec.setPosition(2*game.screenWidth/3, 120);
-            stage.addActor(sec);
         }
 
 
@@ -383,7 +385,10 @@ nice.setVisible(false);*/
                 game.checkPermissions();
                 CommonObjects.speechToText.promptSpeechInput();
                 listen = true;
-
+                sec.setZIndex(5);
+                sec.setPosition(2*game.screenWidth/3, 120);
+                sec.showTime = 0;
+                stage.addActor(sec);
                 dispose();
 
             }
